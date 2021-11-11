@@ -265,10 +265,10 @@ bool storage_simply_mkdir(Storage* storage, const char* path);
 /**
  * @brief Get next free filename.
  * 
- * @param storage
- * @param dirname 
- * @param filename 
- * @param fileextension 
+ * @param storage pointer to the api
+ * @param dirname folder path
+ * @param filename file name
+ * @param fileextension file extension
  * @param nextfilename return name
  */
 void storage_get_next_filename(
