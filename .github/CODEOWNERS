@@ -22,7 +22,7 @@ applications/nfc/** @skotopes @DrZlo13 @gornekich
 applications/power/** @skotopes @DrZlo13
 applications/sd-card-test/** @skotopes @DrZlo13
 applications/sd-filesystem/** @skotopes @DrZlo13
-applications/subghz/** @skotopes @DrZlo13
+applications/subghz/** @skotopes @DrZlo13 @Skorpionm
 applications/template/** @skotopes @DrZlo13
 applications/tests/** @skotopes @DrZlo13
 
@@ -56,6 +56,7 @@ lib/qrcode/** @skotopes @DrZlo13
 lib/ST25RFAL002/** @skotopes @DrZlo13 @gornekich
 lib/STM32CubeWB/** @skotopes @DrZlo13
 lib/u8g2/** @skotopes @DrZlo13
+lib/subghz/** @skotopes @DrZlo13 @Skorpionm
 lib/version/** @skotopes @DrZlo13
 
 # Make
