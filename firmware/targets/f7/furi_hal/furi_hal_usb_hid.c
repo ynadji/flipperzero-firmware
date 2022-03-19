@@ -136,6 +136,23 @@ static const struct usb_device_descriptor hid_device_desc = {
     .bNumConfigurations = 1,
 };
 
+static const struct usb_device_descriptor hid_device_desc_apple = {
+    .bLength = sizeof(struct usb_device_descriptor),
+    .bDescriptorType = USB_DTYPE_DEVICE,
+    .bcdUSB = VERSION_BCD(2, 0, 0),
+    .bDeviceClass = USB_CLASS_IAD,
+    .bDeviceSubClass = USB_SUBCLASS_IAD,
+    .bDeviceProtocol = USB_PROTO_IAD,
+    .bMaxPacketSize0 = USB_EP0_SIZE,
+    .idVendor = 0x05ac, // Apple, Inc.
+    .idProduct = 0x0220, // Aluminum Keyboard (ANSI)
+    .bcdDevice = VERSION_BCD(1, 0, 0),
+    .iManufacturer = UsbDevManuf,
+    .iProduct = UsbDevProduct,
+    .iSerialNumber = UsbDevSerial,
+    .bNumConfigurations = 1,
+};
+
 /* Device configuration descriptor */
 static const struct HidConfigDescriptor hid_cfg_desc = {
     .config =
@@ -355,6 +372,21 @@ FuriHalUsbInterface usb_hid = {
     .suspend = hid_on_suspend,
 
     .dev_descr = (struct usb_device_descriptor*)&hid_device_desc,
+
+    .str_manuf_descr = (void*)&dev_manuf_desc,
+    .str_prod_descr = (void*)&dev_prod_desc,
+    .str_serial_descr = (void*)&dev_serial_desc,
+
+    .cfg_descr = (void*)&hid_cfg_desc,
+};
+
+FuriHalUsbInterface usb_hid_apple = {
+    .init = hid_init,
+    .deinit = hid_deinit,
+    .wakeup = hid_on_wakeup,
+    .suspend = hid_on_suspend,
+
+    .dev_descr = (struct usb_device_descriptor*)&hid_device_desc_apple,
 
     .str_manuf_descr = (void*)&dev_manuf_desc,
     .str_prod_descr = (void*)&dev_prod_desc,
